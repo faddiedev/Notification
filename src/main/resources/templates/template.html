@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Spring boot eamil template with Thymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- use the font -->
+    <style>
+        body{
+        	font-size:15px;
+        	color:white;
+        	}
+    </style>
+</head>
+ <body>
+    <div th:text="${'Hello Dear ' + client}"></div>
+    <div>	You have new client request for information</div><br/>
+    <div>	Client Name: <p th:text="${name}"></p></div><br/>
+    <div>	Client Number: <p th:text="${number}"></p></div><br/>
+    <div>   Client email: <p  th:text="${email}"></p></div><br/>
+	<div>   Description: <p th:text="${text}"></p>  </div>
+    <p>  Regards, </p><br />
+      <p> Automatic Email</p>
+  </body>
+</html>

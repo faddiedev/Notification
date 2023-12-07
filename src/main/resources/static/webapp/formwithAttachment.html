@@ -1,0 +1,63 @@
+<html>
+<head>
+<script src="functions.js" type="text/javascript"></script>
+<style>
+	.contextInputStyle{
+		width:300px;
+		height:50px;
+		margin:15px;
+		font-family:courier;
+		background-color:light-grey;
+		font-size:25px;
+		border: 2px solid;
+		border-radius:5px;
+	}
+	.contextLabelStyle{
+		width:200px;
+		height:50px;
+		font-family:courier;
+		font-size:25px;
+	}
+	.contextErrorStyle{
+		width:300px;
+		height:20px;
+		font-family:courier;
+		font-size:15px;
+		color:red;
+	}
+	.contextinputDocStyle{
+		width:300px;
+		height:50px;
+		margin:5px;
+		font-family:courier;
+	}
+	.buttonStyle{
+		width:200px;
+		height:50px;
+		border-radius:5px;
+		background-color:#1E90FF;
+		font-size:20px;
+		color:white;
+	}
+</style>	
+</head>
+<body>
+	<form name="requestforInfo" enctype="multipart/form-data">
+		<label class="contextLabelStyle" for="name">Name: </label><br>
+		<input class="contextInputStyle" type="text" id="name" name="name"><br>
+		<label class="contextLabelStyle" for="email">Email: </label><br>
+		<input class="contextInputStyle" type="text" id="email" name="email"><br>
+		<label class="contextLabelStyle" for="number">Enter a Phone Number:</label><br>
+    	<input class="contextInputStyle" type="text" id="number" placeholder="123456789" oninput="validateNumber(this)"><br>
+   	 	<p class="contextErrorStyle" id="response"></p>
+		<label class="contextLabelStyle" for="description">Description: </label><br>
+		<textarea rows="5" cols="40" id="description" style="font-size:25px;border-radius:5px;border: 2px solid;" name="description"></textarea><br>
+	</form>
+	<br>
+	<button class="buttonStyle" onclick="submitForm()">
+        Submit
+    </button>
+    <br><br>
+	<p class="contextErrorStyle" id="responses"></p>
+</body>
+</html>
