@@ -44,7 +44,7 @@ public class SendEmailImpl implements SendEmail{
 	             helper.setText(html, true);
 	             helper.setSubject("New client Request");
 	             helper.setFrom(from);
-	             if (attachment == null) {
+	            /* if (attachment == null) {
 	     			try {
 	     				byte[] bytes = attachment.getBytes();
 	     				String rootPath = System.getProperty("catalina.home");
@@ -60,8 +60,9 @@ public class SendEmailImpl implements SendEmail{
 	     			} catch (Exception e) {
 	     				System.out.println("You failed to upload " + name + " => " + e.getMessage());
 	     			}	                          
-		         emailSender.send(message);
-	             }  		         
+		         
+	             }  */	
+	             emailSender.send(message);
 	        } catch (MessagingException exception) {
 	            exception.printStackTrace();
 	            throw new MessagingException();
