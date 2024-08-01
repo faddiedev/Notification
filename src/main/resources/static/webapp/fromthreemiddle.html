@@ -11,12 +11,14 @@
 		font-size:25px;
 		border: 2px solid;
 		border-radius:5px;
+		text-align: center;
 	}
 	.contextLabelStyle{
 		width:200px;
 		height:50px;
 		font-family:courier;
 		font-size:25px;
+		text-align: center;
 	}
 	.contextErrorStyle{
 		width:300px;
@@ -30,24 +32,31 @@
 		height:50px;
 		margin:5px;
 		font-family:courier;
+		text-align: center;
 	}
 	.buttonStyle{
 		width:200px;
 		height:50px;
 		border-radius:5px;
-		background-color:lightgrey;
+		background-color:#1E90FF;
 		font-size:20px;
 		color:white;
+		text-align: center;
 	}
 </style>	
 </head>
 <body>
+	<div style="text-align:center;">
 	<form name="requestforInfo" enctype="multipart/form-data">
-		<input class="contextInputStyle" type="text" id="name" name="name" placeholder="Name"><br>
-		<input class="contextInputStyle" type="text" id="email" name="email" oninput="validateEmail(this)" placeholder="Email"><br>
-    	<input class="contextInputStyle" type="text" id="number" placeholder="Number" oninput="validateNumber(this)"><br>
+		<label class="contextLabelStyle" for="name">Name: </label><br>
+		<input class="contextInputStyle" type="text" id="name" name="name"><br>
+		<label class="contextLabelStyle" for="email">Email: </label><br>
+		<input class="contextInputStyle" type="text" id="email" name="email"><br>
+		<label class="contextLabelStyle" for="number">Enter a Phone Number:</label><br>
+    	<input class="contextInputStyle" type="text" id="number" placeholder="123456789" oninput="validateNumber(this)"><br>
    	 	<p class="contextErrorStyle" id="response"></p>
-		<textarea rows="5" cols="40" id="description" style="font-size:25px;border-radius:5px;border: 2px solid;" name="description" placeholder="Description"></textarea><br>
+		<label class="contextLabelStyle" for="description">Description: </label><br>
+		<textarea rows="5" cols="40" id="description" style="font-size:25px;border-radius:5px;border: 2px solid;" name="description"></textarea><br>
 	</form>
 	<br>
 	<button class="buttonStyle" onclick="submitForm()">
@@ -55,5 +64,6 @@
     </button>
     <br><br>
 	<p class="contextErrorStyle" id="responses"></p>
+	</div
 </body>
 </html>

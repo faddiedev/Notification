@@ -8,8 +8,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface SendEmail {
 
-	void sendSimpleMessage(String to,
+	void sendSimpleMessage(String client,String to,
             String from,
-            String text,String name,int number,MultipartFile attach) throws MessagingException;
+            String text,String name,String number,MultipartFile attach) throws MessagingException;
 	
 }

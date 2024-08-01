@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -19,11 +20,15 @@ import org.thymeleaf.spring6.SpringTemplateEngine;
 public class SendEmailImpl implements SendEmail{
 
 	 @Autowired
-	  private JavaMailSender emailSender;
+	 private JavaMailSender emailSender;
+	 
 	 @Autowired
-	  private SpringTemplateEngine templateEngine;
+	 private SpringTemplateEngine templateEngine;
+	 
+	 @Value("${spring.mail.username}")
+	 private String mailServerUsername;
 
-	  public void sendSimpleMessage(String to, String from, String text,String name,int number,MultipartFile attachment)  throws MessagingException {
+	  public void sendSimpleMessage(String client,String to, String from, String text,String name,String number,MultipartFile attachment)  throws MessagingException {
 		  try {
 				 MimeMessage message = emailSender.createMimeMessage();
 	        	 
@@ -33,7 +38,7 @@ public class SendEmailImpl implements SendEmail{
 	        	 
 	        	 Context context = new Context();	       	 
 	             HashMap<String,Object> values = new HashMap<String,Object>(){{
-	               put("client", "Client Surname");
+	               put("client", client );
 	               put("name", name);
 	               put("email", from);
 	               put("number",number);
@@ -43,7 +48,7 @@ public class SendEmailImpl implements SendEmail{
 	             helper.setTo(to);
 	             helper.setText(html, true);
 	             helper.setSubject("New client Request");
-	             helper.setFrom(from);
+	             helper.setFrom(mailServerUsername);
 	            /* if (attachment == null) {
 	     			try {
 	     				byte[] bytes = attachment.getBytes();

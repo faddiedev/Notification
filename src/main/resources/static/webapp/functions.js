@@ -4,7 +4,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
 function submitForm(){
 	if(document.getElementById("name").value.length > 0
-		&& document.getElementById("email").value.length > 0 && document.getElementById("description").value.length > 0
+		&& document.getElementById("email").value.length > 0  && validateEmail(document.getElementById("email")) && document.getElementById("description").value.length > 0
 			&&  document.getElementById("number").value.length > 0 && validateNumber(document.getElementById("number"))){
 		
 		//if (document.getElementById("file").files[0].name.lastIndexOf('.docx') === -1 && document.getElementById("file").files[0].name.lastIndexOf('.xlsx') === -1) {
@@ -15,9 +15,9 @@ function submitForm(){
 
 			const form = {
 	       			username :'prathiksha',
-	   				password:'abc'
+	   				password:'abcd'
 	   		};
-	   		const credential = "prathiksha:abc";
+	   		const credential = "prathiksha:abcd";
 	   		const encode = btoa(credential);
 	console.log("encode: "+encode);
 			fetch('http://localhost:8080/auth/authenticate', {
@@ -89,9 +89,28 @@ function callWebService(token){
 function validateNumber(input) {
             const inputVal = input.value.trim();
 
-            if (!/^\d{9}$/.test(inputVal)) {
-                document.getElementById("response").textContent = "Please enter a 9-digit number.";
+            if (!/^\d{10}$/.test(inputVal)) {
+                document.getElementById("response").textContent = "Please enter a 10-digit number.";
                 input.setCustomValidity("Invalid input");
+                return false;
+            } else {
+                document.getElementById("response").textContent = "";
+                input.setCustomValidity(""); 
+                return true;
+            }
+}
+function validateEmail(input) {
+            const regexVal = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            const inputVal = input.value.trim();
+            
+             console.log("email test: "+input.value.match(inputVal))
+            if (!regexVal.test(inputVal)) {
+                if(inputVal ==''){
+                	 document.getElementById('response').innerHTML = "";
+                }else{
+                	document.getElementById('response').innerHTML = "Please provide valid email.";
+                	input.setCustomValidity("Invalid email");
+                }
                 return false;
             } else {
                 document.getElementById("response").textContent = "";
