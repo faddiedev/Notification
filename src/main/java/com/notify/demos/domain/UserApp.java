@@ -26,8 +26,6 @@ public class UserApp {
     private boolean active;
     private Date payment;
     
-    public UserApp() {};
-    
 	public UserApp(long userId, String username, String password, String email, String phone, boolean active,
 			Date payment) {
 		super();

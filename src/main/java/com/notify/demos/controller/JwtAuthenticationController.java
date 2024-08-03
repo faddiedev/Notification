@@ -16,13 +16,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.notify.demos.configuration.JwtTokenUtil;
 import com.notify.demos.domain.JwtResponse;
-import com.notify.demos.domain.UserApp;
-import com.notify.demos.service.UserRepository;
 import com.notify.demos.service.UserService;
 
 @CrossOrigin(origins="*",maxAge = 3600)

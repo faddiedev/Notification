@@ -5,7 +5,6 @@ import java.util.Collection;
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import com.notify.demos.domain.UserApp;
 
 public class SelectedUser implements UserDetails {
     private User user;
