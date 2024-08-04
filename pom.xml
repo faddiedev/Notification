@@ -122,6 +122,7 @@
 		                <archive>
 				          <manifest>
 							   <addClasspath>true</addClasspath>
+							    <classpathPrefix>lib/</classpathPrefix>
 				            	<mainClass>com.notify.demos.DemosApplication</mainClass>
 				          </manifest>
 				          <manifestEntries>
