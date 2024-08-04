@@ -122,7 +122,7 @@
 		                <archive>
 				          <manifest>
 							   <addClasspath>true</addClasspath>
-				            	<mainClass>com.notify.demos</mainClass>
+				            	<mainClass>com.notify.demos.DemosApplication</mainClass>
 				          </manifest>
 				          <manifestEntries>
                 			<Created-By>Fatjon Kerxhaliu</Created-By>
